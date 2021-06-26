@@ -1,5 +1,5 @@
 
-pacman::p_load(tidyverse, haven, expss, dplyr)
+pacman::p_load(tidyverse, haven, expss, dplyr, Hmisc, foreign,writexl, easycsv)
 
 
 d2005 <- read_sav(file.choose())
@@ -21,7 +21,37 @@ d2016 <- read_sav(file.choose())
 d2017 <- read_sav(file.choose())
 
 
+contents(d2005)
+contents(d2006)
+
+
 d0506 <- rbind(d2005, d2006)
+
+#Data exploration
+
+d <- contents(d0506)
+
+class(d)
+
+Label <- data.frame(d$contents)
+
+Label$Names <- names(d0506)
+
+Label <- Label[c(5, 1, 2, 3, 4)]
+
+write_xlsx(Label,"C:/Users/totos/Desktop/PDG/mochila/Label.xlsx")
+
+a <- contents(d2007)
+
+class(a)
+
+Label <- data.frame(a$contents)
+
+Label$Names <- names(d2007)
+
+Label <- Label[c(5, 1, 2, 3, 4)]
+
+write_xlsx(Label,"C:/Users/totos/Desktop/PDG/mochila/Label07.xlsx")
 
 
 
@@ -29,6 +59,10 @@ names(d2005)
 names(d2006)
 summary(d2005)
 max(d2005$gender)
+
+contents(d0506)
+
+
 
 val_lab(d2005$country)
 val_lab(d2005$mosurv)
