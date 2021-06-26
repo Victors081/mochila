@@ -3,9 +3,13 @@ pacman::p_load(tidyverse, haven, expss, dplyr)
 
 
 d2005 <- read_sav(file.choose())
+
 d2006 <- read_sav(file.choose())
+
 d2007 <- read_sav(file.choose())
+
 d2008 <- read_sav(file.choose())
+
 d2009 <- read_sav(file.choose())
 d2010 <- read_sav(file.choose())
 d2011 <- read_sav(file.choose())
@@ -38,6 +42,3 @@ val_lab(d2005$ownmge)
 summary(d2005$bjobst)
 
 
-d0506 <- rbind(d2005, d2006)
-
-dp <- rbind(d0506, d2007)
